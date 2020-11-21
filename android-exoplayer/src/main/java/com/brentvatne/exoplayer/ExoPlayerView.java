@@ -134,7 +134,7 @@ public final class ExoPlayerView extends FrameLayout {
             setVideoView();
             player.setVideoListener(componentListener);
             player.addListener(componentListener);
-            player.setTextOutput(componentListener);
+//            player.addTextOutput(componentListener);
         }
     }
 
@@ -199,15 +199,9 @@ public final class ExoPlayerView extends FrameLayout {
         shutterView.setVisibility(VISIBLE);
     }
 
-    private final class ComponentListener implements SimpleExoPlayer.VideoListener,
-            TextRenderer.Output, ExoPlayer.EventListener {
+    private final class ComponentListener implements SimpleExoPlayer.VideoListener, ExoPlayer.EventListener {
 
         // TextRenderer.Output implementation
-
-        @Override
-        public void onCues(List<Cue> cues) {
-            subtitleLayout.onCues(cues);
-        }
 
         // SimpleExoPlayer.VideoListener implementation
 
